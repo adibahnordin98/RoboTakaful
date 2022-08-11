@@ -12,7 +12,7 @@
 06.menu
 07.home
 08.about
-09.features
+09.tools
 10.counter
 11.pricing
 12.footer
@@ -394,8 +394,9 @@ html {
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.focus, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary .open > .dropdown-toggle.btn-primary {
-  background: #39a1e7;
-  border-color: #39a1e7;
+  background: #ffffff;
+  color: #39a1e7;
+  border-color: #39a1e7;;
   box-shadow: 0px 8px 20px -6px rgba(75, 170, 233, 0.6);
   transform: translateY(-6px);
 }
@@ -1268,22 +1269,22 @@ html {
   font-size: 19px;
 }
 
-.features .features-box {
+.tools .tools-box {
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: all 0.5s ease 0s;
   border-radius: 10px;
 }
-.features .features-box .features-icon {
+.tools .tools-box .tools-icon {
   position: absolute;
   left: -24px;
   transition: all 0.5s ease 0s;
 }
-.features .features-box .features-icon .avatar-title {
+.tools .tools-box .tools-icon .avatar-title {
   border-radius: 8px;
   align-items: center;
 }
-.features .features-box .features-icon .avatar-title::after {
+.tools .tools-box .tools-icon .avatar-title::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1292,16 +1293,16 @@ html {
   border: 25px solid transparent;
   border-bottom: 23px solid #ffffff;
 }
-.features .features-box .features-icon .avatar-title i {
+.tools .tools-box .tools-icon .avatar-title i {
   font-size: 30px;
   z-index: 1;
-  color: #000000;
+  color: #ffffff;
 }
-.features .features-box:hover {
+.tools .tools-box:hover {
   transform: scale(1.1);
   transition: all 0.5s ease 0s;
 }
-.features .features-box:hover .features-icon {
+.tools .tools-box:hover .tools-icon {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1310,19 +1311,19 @@ html {
   left: 0;
   transition: all 0.5s ease 0s;
 }
-.features .features-box:hover .features-icon .avatar-title::after {
+.tools .tools-box:hover .tools-icon .avatar-title::after {
   border: none;
 }
-.features .features-box:hover .features-icon i {
+.tools .tools-box:hover .tools-icon i {
   font-size: 200px;
   color: #ffffff;
 }
-.features .features-box .gradients-red {
+.tools .tools-box .gradients-red {
   background: linear-gradient(to left, #ff847d, #e73954);
 }
 
 @media (max-width: 576px) {
-  .features .features-box .features-icon {
+  .tools .tools-box .tools-icon {
     left: 0px;
     top: 0px;
   }

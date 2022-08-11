@@ -1,135 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <title>Mito - Bootstrap5 Responsive Landing</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Premium Bootstrap v5.1.3 Landing Page Template" />
-        <meta name="keywords" content="bootstrap v5.1.3, premium, marketing, multipurpose" />
-        <meta content="Themesdesign" name="author" />
-
-        <!-- fevicon -->
-        <link rel="shortcut icon" href="images/favicon.ico">
-
-        <!-- Bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-
-        <!-- animation -->
-        <link rel="stylesheet" href="css/aos.css" />
-
-        <!-- slider -->
-        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-
-        <!-- Icon -->
-        <link rel="stylesheet" href="css/materialdesignicons.min.css" type="text/css" />
-
-        <link rel="stylesheet" href="css/boxicons.min.css" type="text/css" />
-
-        <!-- css -->
-        <link rel="stylesheet" href="css/style.min.css" type="text/css" />
-
-
+        {% include 'components/header.html' %}
+        <link rel="stylesheet" href="static/css/home.css" type="text/css" />
     </head>
     <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="71">
 
-        <nav class="navbar navbar-expand-lg fixed-top navbar-white navbar-custom sticky" id="navbar">
-            <div class="container">
-                <!-- LOGO -->
-                <a class="navbar-brand text-uppercase" href="index-1.html">
-                    <img class="logo-light" src="images/logo-dark.png" alt="" height="28">
-                    <img class="logo-dark" src="images/logo-dark.png" alt="" height="28">
-                </a>
+        <!-- Navbar -->
+        {% include 'components/navbar.html' %}
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="mdi mdi-menu"></span>
-                    <!-- toggle button -->
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav" id="navbar-navlist">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#review">Review</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#team">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pricing">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mb-3 mb-lg-0" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary nav-btn" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-                        Sign Up
-                    </button>
-                    <!-- Nav btn -->
-                </div>
-            </div><!-- End container -->
-        </nav>
-        <!-- End Navbar -->
-
-        <!--Menu Modal -->
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-close">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body m-3">
-                    <div class="modal-body">
-                        <div class="mb-4">
-                            <h4 class="fw-semibold mb-0">Sign Up</h4>
-                        <p class="text-muted">Already Have an account? <a href="javascript:void(0)">Log in here</a> </p>
-                        </div>
-                            <form>
-                                <div class="mb-3 serch-form">
-                                    <label class="mb-2" for="Email">Email</label>
-                                    <input name="email" id="email" type="email" class="form-control" placeholder="Email">
-                                    <span class="input-group-text"><i class="mdi mdi-email-outline"></i></span>
-                                </div>
-                                <div class="mb-2 serch-form">
-                                    <label class="mb-2" for="userpassword">Password</label>
-                                    <input type="password" class="form-control" id="userpassword" placeholder="Enter Password">
-                                        <span class="input-group-text"><i class="mdi mdi-lock-outline"></i></span>
-                                </div>
-                                <div class="text-end">
-                                    <a href="recoverpw.html" class="text-muted fs-13"><i class="mdi mdi-lock me-1"></i> Forgot password?</a>
-                                </div>
-                                <div class="mt-4">
-                                    <button class="btn btn-primary w-100" type="submit">Log in</button>
-                                </div>
-                            </form>
-                        <p class="text-muted pt-3 mb-0">By signing up You agree to our 
-                            <a href="javascript:void(0)" class="text-muted"><u>Privacy Policy</u></a> and <a href="" class="text-muted"><u>Terms of Service</u></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- end modal -->
-        
         <!--START Hero-->
-        <section class="section home home-1" id="home" style="background-image: url('images/home-bg.png');">
+        <section class="section home home-1" id="home" style="background-image: url('static/images/home-bg.png');">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-md-10">
                         <div class="mt-4">
-                            <h1 class="head-line text-uppercase">do more for less</h1>
-                            <p class="home-caption text-muted mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Dignssimos provident requste uisquam quia vel sint the mollitia  the Internet tend to repeat predefined chunks as necessary, making.</p>
+                            <h1 class="head-line text-uppercase">RoboTakaful</h1>
+                            <p class="home-caption text-muted">
+                                A marketplace to find protection for your needs.
+                            </p>
                             <div class="mt-5">
-                                <a href="javascript:void(0)" class="btn btn-primary me-3">Get Started</a>
+                                <a href="javascript:void(0)" class="btn btn-primary me-3 ">Get Started</a>
                                 <a href="javascript:void(0)" class="btn btn-white play-button text-center shadow-sm" data-bs-toggle="modal"
                                 data-bs-target="#watchvideomodal"><i class="mdi mdi-play align-middle home-icon"></i></a>
                             </div>
@@ -160,7 +51,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="home-shape-arrow">
-                    <a href="#features" class="mouse-down">
+                    <a href="#tools" class="mouse-down">
                         <svg class="arrows">
 							<path class="a1" d="M0 0 L25 22 L50 0"></path>
 							<path class="a2" d="M0 15 L25 40 L50 15"></path>
@@ -171,116 +62,77 @@
             </div><!--end row-->
         </div><!--end container-->
 
-        <!--start Features -->
-        <section class="section features" id="features">
-            <div class="container">
+        <!--start tools -->
+        <section class="section tools" id="tools">
+            <div class="container mb-5 mt-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="text-center">
                             <div class="heading">
-                                <h2 class="mb-0">Features</h2>
+                                <h2 class="mb-0">Tools</h2>
                                 <div class="box first">
                                 </div>
                             </div>
-                            <p class="text-muted">All the features. No hidden layers. </p>
+                            <p class="text-muted">RoboTakaful provide useful comparison tools for takaful. </p>
                         </div>
                     </div>
                     <!-- end col -->
                 </div>
                 <!-- end row -->
 
-                <div class="row g-3 gx-sm-5">
+                <div class="row g-3 gx-sm-5 d-flex justify-content-center align-items-center text-center">
                     <div class="col-lg-4 col-md-6">
-                        <div class="features-box mt-4 p-5">
-                            <div class="avatar-sm features-icon">
-                                <span class="avatar-title gradients">
-                                    <i class="mdi mdi-file-document-edit-outline"></i>
-                                </span>
+                        <div class="tools-box mt-4 p-5">
+                            <h5 class="tools-title fs-5 fw-bold">Corporate</h5>
+                            <p class="mt-4 mb-0 text-muted">
+                                Compare group term takaful for corporate
+                            </p>
+
+                            <div class="mt-5 text-center">
+                                <ul class="list-unstyled">
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)">
+                                            Get Quote
+                                        </a>
+                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)">
+                                            Learn More
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <h5 class="features-title fs-5 fw-bold">Jupyter Notebook</h5>
-                            <p class="mt-4 mb-0 text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-                                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
                         </div>
-                        <!-- end features-box -->
+                        <!-- end tools-box -->
                     </div>
                     <!-- end col -->
                     <div class="col-lg-4 col-md-6">
-                        <div class="features-box mt-4 p-5">
-                            <div class="avatar-sm features-icon">
-                                <span class="avatar-title gradients">
-                                    <i class="mdi mdi-chart-box-plus-outline"></i>
-                                </span>
+                        <div class="tools-box mt-4 p-5">
+                            <h5 class="tools-title fs-5 fw-bold">Individuals</h5>
+                            <p class="mt-4 mb-0 text-muted">
+                                Compare family takaful or medical card for individuals
+                            </p>
+
+                            <div class="mt-5 text-center">
+                                <ul class="list-unstyled">
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)">
+                                            Get Quote
+                                        </a>
+                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)">
+                                            Learn More
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <h5 class="features-title fs-5 fw-bold">Distributed Training</h5>
-                            <p class="mt-4 mb-0 text-muted">The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz 
-                                graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs.</p>
                         </div>
-                        <!-- end features-box -->
+                        <!-- end tools-box -->
                     </div>
                     <!-- end col -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="features-box mt-4 p-5">
-                            <div class="avatar-sm features-icon">
-                                <span class="avatar-title gradients">
-                                    <i class="mdi mdi-chemical-weapon"></i>
-                                </span>
-                            </div>
-                            <h5 class="features-title fs-5 fw-bold">Experiment Parallel</h5>
-                            <p class="mt-4 mb-0 text-muted">One morning, when Gregor Samsa woke from troubled dreams, he found himself 
-                                transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little.</p>
-                        </div>
-                        <!-- end features-box -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="features-box mt-4 p-5">
-                            <div class="avatar-sm features-icon">
-                                <span class="avatar-title gradients">
-                                    <i class="mdi mdi-connection"></i>
-                                </span>
-                            </div>
-                            <h5 class="features-title fs-5 fw-bold">Tensor Board</h5>
-                            <p class="mt-4 mb-0 text-muted">A wonderful serenity has taken possession of my entire soul, like these sweet 
-                                mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence.</p>
-                        </div>
-                        <!-- end features-box -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="features-box mt-4 p-5">
-                            <div class="avatar-sm features-icon">
-                                <span class="avatar-title gradients">
-                                    <i class="mdi mdi-arrow-decision-outline"></i>
-                                </span>
-                            </div>
-                            <h5 class="features-title fs-5 fw-bold">Fine-Tunes Performance</h5>
-                            <p class="mt-4 mb-0 text-muted">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                                there live the blind texts. Separated they live in Bookmarksgrovee.</p>
-                        </div>
-                        <!-- end features-box -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="features-box mt-4 p-5">
-                            <div class="avatar-sm features-icon">
-                                <span class="avatar-title gradients">
-                                    <i class="mdi mdi-lightning-bolt"></i>
-                                </span>
-                            </div>
-                            <h5 class="features-title fs-5 fw-bold">Easy Deployment</h5>
-                            <p class="mt-4 mb-0 text-muted">The European languages are members of the same family. Their separate 
-                                existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages</p>
-                        </div><!-- end features-box -->
                     </div><!-- end col -->
                 </div><!-- end row -->
-
-                <div class="mt-5 text-center">
-                    <a href="javascript:void(0)" class="btn btn-primary text-uppercase">Start for free</a>
-                </div>
             </div>
             <!-- end container -->
         </section>
-        <!-- end Features -->
+        <!-- end tools -->
 
         <!-- Start Reviews -->
         <section class="section reviews" id="review">
@@ -304,7 +156,7 @@
                                   <a href="#collapseOne" class="accordion-button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
                                     <div class="d-flex align-items-center">
                                         <span class="flex-shrink-0">
-                                            <img src="images/user/user.png" class="avatar-md rounded-circle" alt=""> 
+                                            <img src="static/images/user/user.png" class="avatar-md rounded-circle" alt=""> 
                                         </span>
                                         <div class="flex-grow-1 ms-4">
                                             <h6 class="mb-0 text-primary fw-bold">Alan <span class="text-black">Macedo</span> </h6>
@@ -371,7 +223,7 @@
                                   <a href="#collapseTwo" class="accordion-button collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
                                       <div class="d-flex align-items-center">
                                           <span class="flex-shrink-0">
-                                              <img src="images/user/user1.png" class="avatar-md rounded-circle" alt=""> 
+                                              <img src="static/images/user/user1.png" class="avatar-md rounded-circle" alt=""> 
                                           </span>
                                           <div class="flex-grow-1 ms-4">
                                               <h6 class="mb-0 text-primary fw-bold">Erla <span class="text-black">Petursdottir</span> </h6>
@@ -438,7 +290,7 @@
                                 <a href="#collapseThree" class="accordion-button collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
                                     <div class="d-flex align-items-center">
                                         <span class="flex-shrink-0">
-                                            <img src="images/user/user2.png" class="avatar-md rounded-circle" alt=""> 
+                                            <img src="static/images/user/user2.png" class="avatar-md rounded-circle" alt=""> 
                                         </span>
                                         <div class="flex-grow-1 ms-4">
                                             <h6 class="mb-0 text-primary fw-bold">Palmi <span class="text-black">Arnason</span> </h6>
@@ -505,7 +357,7 @@
                                 <a href="#collapseFour" class="accordion-button collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseFour">
                                     <div class="d-flex align-items-center">
                                         <span class="flex-shrink-0">
-                                            <img src="images/user/user6.png" class="avatar-md rounded-circle" alt=""> 
+                                            <img src="static/images/user/user6.png" class="avatar-md rounded-circle" alt=""> 
                                         </span>
                                         <div class="flex-grow-1 ms-4">
                                             <h6 class="mb-0 text-primary fw-bold">Charlotte <span class="text-black">Charpentier</span> </h6>
@@ -589,7 +441,7 @@
                                   <div class="row">
                                       <div class="col-lg-5 col-md-6">
                                           <div class="team-img">
-                                            <img class="img-fluid" src="images/team/team1.png" alt="">
+                                            <img class="img-fluid" src="static/images/team/team1.png" alt="">
                                             <div class="img-text">
                                                 <h6>Marta Matković</h6>
                                                 <span class="text-white-50">Web designer</span>
@@ -649,7 +501,7 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="team-img">
-                                          <img class="img-fluid" src="images/team/team2.png" alt="">
+                                          <img class="img-fluid" src="static/images/team/team2.png" alt="">
                                           <div class="img-text">
                                               <h6>Silvija Vučković</h6>
                                               <span class="text-white-50">Web devloper</span>
@@ -709,7 +561,7 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="team-img">
-                                          <img class="img-fluid" src="images/team/team3.png" alt="">
+                                          <img class="img-fluid" src="static/images/team/team3.png" alt="">
                                           <div class="img-text">
                                               <h6>Laura Rodrigues Pereira</h6>
                                               <span class="text-white-50">Team Leader</span>
@@ -769,7 +621,7 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="team-img">
-                                          <img class="img-fluid" src="images/team/team4.png" alt="">
+                                          <img class="img-fluid" src="static/images/team/team4.png" alt="">
                                           <div class="img-text">
                                               <h6>Arthur Hjálmarsson</h6>
                                               <span class="text-white-50">CEO</span>
@@ -1089,110 +941,8 @@
         </section>
         <!-- End contact -->
 
-        <!-- START FOOTER -->
-        <footer class="section footer">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 col-sm-10 text-center">
-                        <a href="javascript:void(0)"><img src="images/logo-dark.png" height="30" alt=""></a>
-                        <p class="mx-auto mt-sm-4">Obviously I'm a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.</p>
-                        <ul class="list-unstyled mb-0 mt-3 social-icon">
-                            <li class="list-inline-item">
-                                <div data-aos="fade-up" data-aos-duration="800">
-                                    <div class="icon-text">
-                                        <div class="icon facebook">
-                                            <div class="tooltip">Facebook</div>
-                                            <span><i class="mdi mdi-facebook"></i></span>
-                                          </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-inline-item">
-                                <div data-aos="fade-up" data-aos-duration="1200">
-                                    <div class="icon-text">
-                                        <div class="icon twitter">
-                                            <div class="tooltip">Twitter</div>
-                                            <span><i class="mdi mdi-twitter"></i></span>
-                                          </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-inline-item">
-                                <div data-aos="fade-up" data-aos-duration="1600">
-                                    <div class="icon-text">
-                                        <div class="icon instagram">
-                                            <div class="tooltip">Instagram</div>
-                                            <span><i class="mdi mdi-instagram"></i></span>
-                                          </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-inline-item">
-                                <div data-aos="fade-up" data-aos-duration="2000">
-                                    <div class="icon-text">
-                                        <div class="icon github">
-                                            <div class="tooltip">Github</div>
-                                            <span><i class="mdi mdi-github"></i></span>
-                                          </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-inline-item">
-                                <div data-aos="fade-up" data-aos-duration="2400">
-                                    <div class="icon-text">
-                                        <div class="icon youtube">
-                                            <div class="tooltip">Youtube</div>
-                                            <span><i class="mdi mdi-youtube"></i></span>
-                                          </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!--end col-->
-                </div><!--end row-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="text-center mt-3">
-                            <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item mx-lg-3 m-2 mb-0">
-                                    <a class="text-black" href="javascript:void(0)">Home</a>
-                                </li>
-                                <li class="list-inline-item mx-lg-3 m-2 mb-0">
-                                    <a class="text-black" href="javascript:void(0)">About us</a>
-                                </li>
-                                <li class="list-inline-item mx-lg-3 m-2 mb-0">
-                                    <a class="text-black" href="javascript:void(0)">Order</a>
-                                </li>
-                                <li class="list-inline-item mx-lg-3 m-2 mb-0">
-                                    <a class="text-black" href="javascript:void(0)">Member</a>
-                                </li>
-                                <li class="list-inline-item mx-lg-3 m-2 mb-0">
-                                    <a class="text-black" href="javascript:void(0)">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!-- end col-->
-                </div><!-- end row-->
-            </div><!--end container-->
-        </footer>
-        <!-- END FOOTER -->
-
-        <!-- FOOTER-ALT -->
-        <div class="footer-alt pt-4 pb-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="mb-0 fs-15">©
-                                <script>document.write(new Date().getFullYear())</script> Mito Design by
-                                <i class="mdi mdi-heart text-danger"></i> Themesdesign
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END FOOTER-ALT -->
+        <!-- Footer -->
+        {% include 'components/footer.html' %}
 
         <!--start back-to-top-->
         <button onclick="topFunction()" id="back-to-top">
@@ -1201,22 +951,13 @@
         <!--end back-to-top-->
 
         <!--Custom js-->
-        <script src="js/counter.js"></script>
-
-        <!--Bootstrap Js-->
-        <script src="js/bootstrap.bundle.min.js"></script>
-
-        <!-- animation -->
-        <script src="js/aos.js"></script>
-
-        <!-- swiper js -->
-        <script src="js/swiper-bundle.min.js"></script>
+        <script src="static/js/counter.js"></script>
 
         <!-- contact -->
-        <script src="js/contact.js"></script>
+        <script src="static/js/contact.js"></script>
 
         <!-- App Js -->
-        <script src="js/app.js"></script>
+        <script src="static/js/app.js"></script>
 
     </body>
 </html>

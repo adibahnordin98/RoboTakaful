@@ -1,0 +1,19 @@
+.mdi-play::before {
+    color: #39a1e7;
+}
+
+.home-1 .head-line {
+    color: #39a1e7;
+}
+
+.list-inline-item .btn {
+    padding: 10px;
+}
+
+.navbar-custom {
+    padding: 5px 0px;
+}
+
+.rounded{
+    border-radius: 20px !important;
+}
