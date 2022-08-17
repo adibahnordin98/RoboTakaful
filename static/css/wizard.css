@@ -43,3 +43,24 @@
     padding-right: 51px;
 }
 
+label{
+    color: #225d85;
+    font-weight: 600;
+}
+
+.heading h2{
+    color: #225d85;
+}
+
+#employeeTable th{
+    font-weight: 500;
+}
+
+#employeeTable td:nth-child(2){
+    display: flex;
+    justify-content: center;
+}
+
+#employeeTable input[type="text"]{
+    width: 50%;
+}

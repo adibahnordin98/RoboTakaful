@@ -1222,6 +1222,13 @@ html {
   .home .home-heading h1 {
     font-size: 36px;
   }
+  .home-1 .home-caption {
+    font-size: 15px;
+  }
+
+  .home-1 .head-line {
+    font-size: 35px;
+  }
 
   .home-2 {
     padding: 130px 0;
