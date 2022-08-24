@@ -101,6 +101,8 @@ def quote():
     for item in empList:
         totalNoEmp += item
 
+    totalSumAssured = "{:,}".format(totalNoEmp * int(empCoverage))
+
     return render_template("quote.html", title='RoboTakaful | Quotation',
                            meta_description=META_DESCRIPTION,
                            meta_image=META_IMAGE_LINK,
@@ -108,6 +110,7 @@ def quote():
                            serviceTax='{:.2f}'.format(round(serviceTax, 2)),
                            stampDuty='{:.2f}'.format(round(stampDuty, 2)),
                            grandTotalCont='{:.2f}'.format(round(grandTotalCont, 2)),
+                           totalSumAssured=totalSumAssured,
                            totalNoEmp=totalNoEmp)
 if __name__ == '__main__':
     # HOST = "0.0.0.0"

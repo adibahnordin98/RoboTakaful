@@ -1,7 +1,30 @@
 
+var totalNoEmp
+var empNo
+
 function employeeCalc(){
-    var empNo = []
-    var totalNoEmp = 0
+
+    calclEmployeeNo()
+
+    if (typeof totalNoEmp === 'number' && !Number.isNaN(totalNoEmp)) {
+        document.getElementById("employeeTotalNo").value = totalNoEmp
+        calcTotalSumAssured()
+    }
+    else{
+        document.getElementById("employeeTotalNo").value = "Invalid. Please recheck your input."
+    }
+
+    return empNo
+}
+
+function employeeCoverage(){
+    calclEmployeeNo()
+    calcTotalSumAssured()
+}
+
+function calclEmployeeNo(){
+    empNo = []
+    totalNoEmp = 0
     
     for(let i=0; i<11; i++){
         let tempCount = i+1
@@ -9,15 +32,11 @@ function employeeCalc(){
         empNo[i] = parseInt(document.getElementById(tempStr).value)
         totalNoEmp += empNo[i]
     }
+}
 
-    if (typeof totalNoEmp === 'number' && !Number.isNaN(totalNoEmp)) {
-        document.getElementById("employeeTotalNo").value = totalNoEmp
-    }
-    else{
-        document.getElementById("employeeTotalNo").value = "Invalid. Please recheck no of employees entered."
-    }
-
-    return empNo
+function calcTotalSumAssured(){
+    totalSumAssured = totalNoEmp * document.getElementById("employeeCoverage").value
+    document.getElementById("employeeTotalSumAssured").value = totalSumAssured.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
 document.getElementById('quote').addEventListener('click', ()=>{
@@ -26,14 +45,14 @@ document.getElementById('quote').addEventListener('click', ()=>{
     var empCoverage = document.getElementById("employeeCoverage").value
     var totalEmp = document.getElementById("employeeTotalNo").value
 
-    if (document.getElementById("employeeTotalNo").value != "Invalid. Please recheck no of employees entered."){
-    if (totalEmp <5)
-        alert("Minimum number of employees required is (5)")
-    else if(totalEmp >150)
-        alert("Maximum number of employees required is (150)")
-    else
-        window.location.href = "/quote?empNo=" + empNo + "&empCoverage=" + empCoverage
+    if (document.getElementById("employeeTotalNo").value != "Invalid. Please recheck your input entered."){
+        if (totalEmp <5)
+            alert("Minimum number of employees allowed is (5)")
+        else if(totalEmp >150)
+            alert("Maximum number of employees allowed is (150)")
+        else
+            window.location.href = "/quote?empNo=" + empNo + "&empCoverage=" + empCoverage
     }
     else
-        alert("Invalid. Please recheck no of employees entered before submit.")
+        alert("Invalid. Please recheck your input before submit.")
 });

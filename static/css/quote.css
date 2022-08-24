@@ -8,11 +8,15 @@
 .background::after {
   content: '';
   background: #60a9ff;
-  background: -moz-linear-gradient(top, #60a9ff 0%, #4394f4 100%);
+  background-image: url(../images/bg_gemometry_blue.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  /* background: -moz-linear-gradient(top, #60a9ff 0%, #4394f4 100%);
   background: -webkit-linear-gradient(top, #60a9ff 0%,#4394f4 100%);
-  background: linear-gradient(to bottom, #60a9ff 0%,#4394f4 100%);
+  background: linear-gradient(to bottom, #60a9ff 0%,#4394f4 100%); */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
-  height: 400px;
+  height: 500px;
   left: 0;
   position: absolute;
   top: 0;
