@@ -54,6 +54,8 @@ def quote():
         if(item.isnumeric()):
             empList.append(int(item))
 
+    print(len(empList))
+
     if int(empCoverage) == 10000:
         totalCont = (empList[0] * 17.70 + empList[1] * 17.70 + empList[2] * 17.70 + empList[3] * 17.70 
         + empList[4] * 19.90 + empList[5] * 31.90 + empList[6] * 55.40 + empList[7] * 91.70

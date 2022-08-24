@@ -22,3 +22,64 @@
 .rounded{
     border-radius: 20px !important;
 }
+
+.navbar-toggler{
+    border: none;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .col-lg-4 {
+        flex: 0 0 auto;
+        width: 40%;
+    }
+}
+
+@media (max-width: 991px) {
+    .contact .card .social-list .card-text::before {
+        right: 159px;
+    }
+
+    .contact .card .social-list::before {
+        left: -2px !important;
+        top: -16px !important;
+    }
+
+    .inline{
+        display: inline;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .none{
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .swiper-button-next, .swiper-button-prev{
+        margin-top: -300px;
+      }
+}
+
+
+.contact .card .social-list::before {
+    left: -25px;
+    bottom: 0;
+    top: -45px;
+    width: 119px;
+    height: 98px;
+}
+
+  .swiper-button-next::after, .swiper-button-prev::after {
+    content: "";
+}
+
+.mdifont{
+    font-size: 40px;
+    color: #39a1e7;
+}
+
+.sppb-fullwidth-slider .sppb-fullwidth-slider-item-bg:before {
+    background-image: none !important;
+  }

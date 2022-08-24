@@ -3,6 +3,7 @@
     <head>
         {% include 'components/header.html' %}
         <link rel="stylesheet" href="static/css/home.css" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     </head>
     <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="71">
 
@@ -21,29 +22,12 @@
                             </p>
                             <div class="mt-5">
                                 <a href="#tools" class="btn btn-primary me-3 ">Get Started</a>
-                                <a href="javascript:void(0)" class="btn btn-white play-button text-center shadow-sm" data-bs-toggle="modal"
-                                data-bs-target="#watchvideomodal"><i class="mdi mdi-magnify align-middle home-icon"></i></a>
+                                <a class="btn btn-white play-button text-center shadow-sm" data-bs-toggle="tooltip" data-bs-placement="bottom" title="feature not available"><i class="mdi mdi-magnify align-middle home-icon"></i></a>
                             </div>
                         </div>
                     </div><!-- end col --> 
                 </div><!-- end row -->
-                <!-- Modal -->
-                <div class="modal fade bd-example-modal-lg" id="watchvideomodal" data-bs-keyboard="false"
-                tabindex="-1"  aria-labelledby="watchvideomodalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
-                        <div class="modal-content home-modal">
-                            <div class="modal-header border-0">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <video id="VisaChipCardVideo" class="video-box" controls>
-                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                                <!--Browser does not support <video> tag -->
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            <!-- end modal -->
+
             </div><!--end container-->
         </section>
         <!--END HOME-->
@@ -94,7 +78,7 @@
                                         <a class="btn btn-soft-primary clinte-btn rounded" href="/company-info">
                                             Get Quote
                                         </a>
-                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)">
+                                        <a class="btn btn-soft-primary clinte-btn rounded" data-bs-toggle="tooltip" data-bs-placement="bottom" title="feature not available">
                                             Learn More
                                         </a>
                                     </li>
@@ -104,6 +88,7 @@
                         <!-- end tools-box -->
                     </div>
                     <!-- end col -->
+                    
                     <div class="col-lg-4 col-md-6">
                         <div class="tools-box mt-4 p-5">
                             <h5 class="tools-title fs-5 fw-bold">Personal</h5>
@@ -114,10 +99,10 @@
                             <div class="mt-5 text-center">
                                 <ul class="list-unstyled">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)">
+                                        <a class="btn btn-soft-primary clinte-btn rounded" data-bs-toggle="tooltip" data-bs-placement="bottom" title="feature not available">
                                             Get Quote
                                         </a>
-                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)">
+                                        <a class="btn btn-soft-primary clinte-btn rounded" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="feature not available">
                                             Learn More
                                         </a>
                                     </li>
@@ -146,12 +131,12 @@
         <!-- end cta -->
 
          <!-- Start Team -->
-         <section class="section team" id="team">
+         <section class="section team" id="blog">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="heading mb-3">
-                            <h2 class="mb-0">Our Team</h2>
+                            <h2 class="mb-0">Blog's Highlight</h2>
                             <div class="box first">
                             </div>
                         </div>
@@ -161,10 +146,10 @@
                                   <div class="row">
                                       <div class="col-lg-5 col-md-6">
                                           <div class="team-img">
-                                            <img class="img-fluid" src="images/team/team1.png" alt="">
+                                            <img class="img-fluid" src="../static/images/team/team1.png" alt="">
                                             <div class="img-text">
-                                                <h6>Marta Matković</h6>
-                                                <span class="text-white-50">Web designer</span>
+                                                <h6>Example of Long Title</h6>
+                                                <span class="text-white-50">24 August 2022</span>
                                             </div>
                                           </div>
                                       </div>
@@ -172,15 +157,15 @@
                                           <div class="card h-100">
                                             <div class="team-heading">
                                                 <div data-aos="fade-left" data-aos-duration="2000">
-                                                    <h6>Marta</h6>
+                                                    <h6>Blog's Title #1</h6>
                                                 </div>
                                             </div>
                                               <div class="card-body">
                                                   <div class="card-text">
-                                                    <h6>Designation</h6>
+                                                    <h6>24 August 2022</h6>
                                                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
                                                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur 
-                                                        ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla</p>
+                                                        ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <a>Read More...</a></p>
                                                   </div>
                                                   <ul class="inline-item team-icon">
                                                       <li class="list-inline-item">
@@ -221,10 +206,10 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="team-img">
-                                          <img class="img-fluid" src="images/team/team2.png" alt="">
+                                          <img class="img-fluid" src="../static/images/team/team2.png" alt="">
                                           <div class="img-text">
-                                              <h6>Silvija Vučković</h6>
-                                              <span class="text-white-50">Web devloper</span>
+                                              <h6>Blog's Title #2</h6>
+                                              <span class="text-white-50">25 August 2022</span>
                                           </div>
                                         </div>
                                     </div>
@@ -232,7 +217,7 @@
                                         <div class="card h-100">
                                           <div class="team-heading">
                                               <div data-aos="fade-left" data-aos-duration="2000">
-                                                  <h6>Silvija</h6>
+                                                  <h6>Blog's Title #2</h6>
                                               </div>
                                           </div>
                                             <div class="card-body">
@@ -281,10 +266,10 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="team-img">
-                                          <img class="img-fluid" src="images/team/team3.png" alt="">
+                                          <img class="img-fluid" src="../static/images/team/team3.png" alt="">
                                           <div class="img-text">
-                                              <h6>Laura Rodrigues Pereira</h6>
-                                              <span class="text-white-50">Team Leader</span>
+                                              <h6>Blog's Title #3</h6>
+                                              <span class="text-white-50">25 August 2022</span>
                                           </div>
                                         </div>
                                     </div>
@@ -292,7 +277,7 @@
                                         <div class="card h-100">
                                           <div class="team-heading">
                                               <div data-aos="fade-left" data-aos-duration="2000">
-                                                  <h6>Laura</h6>
+                                                  <h6>Blog's Title #3</h6>
                                               </div>
                                           </div>
                                             <div class="card-body">
@@ -341,10 +326,10 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="team-img">
-                                          <img class="img-fluid" src="images/team/team4.png" alt="">
+                                          <img class="img-fluid" src="../static/images/team/team4.png" alt="">
                                           <div class="img-text">
-                                              <h6>Arthur Hjálmarsson</h6>
-                                              <span class="text-white-50">CEO</span>
+                                              <h6>Blog's Title #4</h6>
+                                              <span class="text-white-50">26 August 2022</span>
                                           </div>
                                         </div>
                                     </div>
@@ -352,7 +337,7 @@
                                         <div class="card h-100">
                                           <div class="team-heading">
                                               <div data-aos="fade-left" data-aos-duration="2000">
-                                                  <h6>Arthur</h6>
+                                                  <h6>Blog's Title #4</h6>
                                               </div>
                                           </div>
                                             <div class="card-body">
@@ -400,6 +385,11 @@
                             </div><!-- swiper-wrapper -->
                         </div><!-- end swiper -->
                     </div><!--col end-->
+                    <!-- Add Arrows -->
+                    <div class="d-flex">
+                        <div class="swiper-button-prev"><i class="mdi mdi-chevron-left-circle mdifont"></i></div>
+                    <div class="swiper-button-next"><i class="mdi mdi-chevron-right-circle mdifont"></i></div>
+                    </div>
                 </div><!--row end-->
             </div>
         </section>
@@ -416,11 +406,11 @@
                                 <div class="card">
                                     <div class="card-body p-0">
                                         <div class="social-list">
-                                            <h6 class="mb-0">Let's Get</h6>
-                                            <h3 class="fw-semibold">Started</h3>
+                                            <h6 class="mb-0">Any inquiries?</h6>
+                                            <h3 class="fw-semibold">Contact Us</h3>
                                             <div class="d-sm-flex card-text">
-                                                <p class="me-4 mb-0">Reach up</p>
-                                                <a class="text-white" href="javascript:void(0)"><i class="mdi mdi-phone-outline me-2"></i>408.409.6483</a>
+                                                <p class="me-2 mb-0 inline none">Reach Us </p>
+                                                <a class="text-white" href="javascript:void(0)"><i class="mdi mdi-email me-2"></i>help@robotakaful.com</a>
                                             </div>
                                         </div>
                                     </div>
@@ -431,7 +421,7 @@
                                 <form method="post" onsubmit="return validateForm()" class="contact-form" name="myForm" id="myForm">
                                     <span id="error-msg"></span>
                                     <div class="row rounded-3 py-3">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12 mt-5">
                                             <div class="position-relative mb-3">
                                                 <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
                                                 <input name="name" id="name" type="text" class="form-control" placeholder="Enter your name*">
@@ -457,7 +447,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="text-end">
-                                                <input type="submit" id="submit" name="send" class="btn btn-primary" value="Send Message">
+                                                <input type="submit" id="submit" name="send" class="btn btn-primary rounded" value="Send Message">
                                             </div>
                                         </div>
                                     </div>
@@ -482,9 +472,8 @@
 
         <!--Custom js-->
         <script src="static/js/counter.js"></script>
-
-        <!-- contact -->
         <script src="static/js/contact.js"></script>
+        <script src="static/js/home.js"></script>
 
     </body>
 </html>

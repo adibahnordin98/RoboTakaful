@@ -44,8 +44,9 @@ document.getElementById('quote').addEventListener('click', ()=>{
     var empNo = employeeCalc()
     var empCoverage = document.getElementById("employeeCoverage").value
     var totalEmp = document.getElementById("employeeTotalNo").value
+    
 
-    if (document.getElementById("employeeTotalNo").value != "Invalid. Please recheck your input entered."){
+    if (document.getElementById("employeeTotalNo").value != "Invalid. Please recheck your input."){
         if (totalEmp <5)
             alert("Minimum number of employees allowed is (5)")
         else if(totalEmp >150)

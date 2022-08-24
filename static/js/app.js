@@ -44,6 +44,10 @@ var swiper6 = new Swiper(".mySwiper6", {
       disableOnInteraction: false,
     },
   },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
 
 
