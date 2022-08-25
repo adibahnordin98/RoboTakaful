@@ -1,3 +1,11 @@
+.home-1 {
+    background-color: rgb(255, 255, 255);
+    padding: 150px 0px 100px 0px;
+  }
+  .home-1 .bg-overlay {
+    background: none;
+  }
+
 .tools .tools-box {
     transform: scale(1.1);
     transition: all 0.5s ease 0s;
@@ -6,16 +14,6 @@
 .btn-custom{
     padding: 10px 20px !important;
     border-radius: 25px !important;
-}
-
-.image-holder img {
-    width: 350px;
-    height: 280px;
-}
-
-.company img {
-    width: 300px;
-    height: 250px;
 }
 
 .center {
@@ -51,6 +49,17 @@
     background: -webkit-linear-gradient(to top, #86fde8, #aec3fe);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #86fde8, #aec3fe); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+.image-holder img {
+    width: 350px;
+    height: 280px;
+}
+
+.company img {
+    width: 320px;
+    height: 250px;
+}
+
 .form-content {
     width: 60%;
     padding-top: 65px;
@@ -100,4 +109,12 @@ input:invalid {
     #employeeTable input[type="text"] {
         width: 70%;
     }
+}
+
+.glass{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.416);
 }

@@ -1,6 +1,6 @@
 
 .background {
-  padding: 0 25px 25px;
+  padding: 0 30px 30px;
   position: relative;
   width: 100%;
 }
@@ -16,13 +16,14 @@
   background: -webkit-linear-gradient(top, #60a9ff 0%,#4394f4 100%);
   background: linear-gradient(to bottom, #60a9ff 0%,#4394f4 100%); */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
-  height: 600px;
+  height: 800px;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 1;
 }
+
 
 @media (min-width: 900px) {
   .background {

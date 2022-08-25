@@ -1,0 +1,8 @@
+.social-icon li a{
+    border: none;
+  }
+  
+  .social-icon li a:hover{
+    border: none;
+    color: white;
+  }
