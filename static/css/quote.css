@@ -7,7 +7,7 @@
 }
 .panel {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 0px;
   position: relative;
   width: 100%;
   z-index: 10;
@@ -149,4 +149,17 @@
 
 .w-sec-div{
   width: 40%;
+}
+
+.btnplan{
+    width: 100%;
+    border-top-left-radius: 0% !important;
+    border-top-right-radius: 0% !important;
+    border-bottom-left-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+    /* border-radius: 10px !important; */
+    margin-top: 19px;
+    margin-left: -263px;
+    padding: 18px !important;
+    position: absolute;
 }

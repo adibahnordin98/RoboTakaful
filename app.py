@@ -49,12 +49,10 @@ def quote():
     empCoverage = request.args.get('empCoverage')
     empList =[]
     totalNoEmp = 0
-
-    for item in empNo:
+    
+    for item in empNo.split(','):
         if(item.isnumeric()):
             empList.append(int(item))
-
-    print(len(empList))
 
     if int(empCoverage) == 10000:
         totalCont = (empList[0] * 17.70 + empList[1] * 17.70 + empList[2] * 17.70 + empList[3] * 17.70 
@@ -101,7 +99,7 @@ def quote():
     grandTotalCont = totalCont + serviceTax + stampDuty
 
     for item in empList:
-        totalNoEmp += item
+        totalNoEmp = totalNoEmp + item
 
     totalSumAssured = "{:,}".format(totalNoEmp * int(empCoverage))
 
@@ -114,6 +112,8 @@ def quote():
                            grandTotalCont='{:.2f}'.format(round(grandTotalCont, 2)),
                            totalSumAssured=totalSumAssured,
                            totalNoEmp=totalNoEmp)
+
+
 if __name__ == '__main__':
     # HOST = "0.0.0.0"
     # PORT = 5000
