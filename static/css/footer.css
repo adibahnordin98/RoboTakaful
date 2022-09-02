@@ -6,3 +6,10 @@
     border: none;
     color: white;
   }
+
+@media (max-width: 500px) {
+  .mobileLogo {
+    width: 248px;
+    height: 75px;
+}
+}
