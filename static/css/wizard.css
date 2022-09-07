@@ -94,6 +94,10 @@ label{
     display: inline;
 }
 
+#employeeTable .form-select{
+    display: inline;
+}
+
 #employeeTable th{
     font-weight: 500;
 }
@@ -134,4 +138,8 @@ input:invalid {
 
 td > * {
     vertical-align : middle !important;
+}
+
+.rb{
+    width: 80%;
 }

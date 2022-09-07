@@ -36,15 +36,21 @@ def compony_info():
                            meta_description=META_DESCRIPTION,
                            meta_image=META_IMAGE_LINK)
 
-@app.route("/employee-info")
+@app.route("/gtt")
 def employee_info():
-    return render_template("employee-info.html", title='RoboTakaful | Employee Info',
+    return render_template("gtt.html", title='RoboTakaful | GTT',
+                           meta_description=META_DESCRIPTION,
+                           meta_image=META_IMAGE_LINK)
+
+@app.route("/ghs")
+def employee_info_ghs():
+    return render_template("ghs.html", title='RoboTakaful | GHS',
                            meta_description=META_DESCRIPTION,
                            meta_image=META_IMAGE_LINK)
 
 
-@app.route("/quote")
-def quote():
+@app.route("/quote-gtt")
+def quote_gtt():
     employeeAgeList = request.args.get('empAge')
     employeeNoList = request.args.get('empNo')
     empCoverage = request.args.get('empCoverage')
@@ -211,7 +217,7 @@ def quote():
             elif int(empAge >= 66) and int(empAge <= 70):
                 totalContGreatEastern = totalContGreatEastern + 11573.00 * empNo[idx]
 
-        # Great Eastern Takaful
+        # Etiqa Takaful
         if int(empCoverage) == 20000:
             if int(empAge >= 16) and int(empAge <= 69):
                 totalContEtiqa = totalContEtiqa + 28.00 * empNo[idx]
@@ -287,7 +293,7 @@ def quote():
         }
         
 
-    return render_template("quote.html", title='RoboTakaful | Quotation',
+    return render_template("quote-gtt.html", title='RoboTakaful | Quotation',
                            meta_description=META_DESCRIPTION,
                            meta_image=META_IMAGE_LINK,
                            greatEasternDict = greatEasternDict,
@@ -296,12 +302,230 @@ def quote():
                            totalNoEmp=totalNoEmp,
                            empCoverage="{:,}".format(int(empCoverage)))
 
+@app.route("/quote-ghs")
+def quote_ghs():
+    employeeAgeList = request.args.get('empAge')
+    employeeNoList = request.args.get('empNo')
+    ghsTypeList = request.args.get('ghsType')
+    roomBoard = request.args.get('roomBoard')
+    totalContGreatEastern = 0
+    totalContEtiqa = 0
+    empAge = []
+    empNo = []
+    ghsType = []
+    totalNoEmp = 0
+    tpaFee = 0
+
+    for item in employeeNoList.split(','):
+        if(item.isnumeric()):
+            empNo.append(int(item))
+
+    for item in employeeAgeList.split(','):
+        if(item.isnumeric()):
+            empAge.append(int(item))
+
+    for item in ghsTypeList.split(','):
+        ghsType.append(item)
+            
+    for idx, empAge in enumerate(empAge):
+
+        totalNoEmp += int(empNo[idx])
+
+        # Great Eastern Takaful
+        if int(roomBoard) == 100:
+            if ghsType[idx] == "EO":
+                totalContGreatEastern = totalContGreatEastern + 502.00 * empNo[idx]
+            elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                totalContGreatEastern = totalContGreatEastern + 1255.00 * empNo[idx]
+            elif ghsType[idx] == "EF":
+                totalContGreatEastern = totalContGreatEastern + 2008.00 * empNo[idx]
+            print(totalContGreatEastern)
+
+        elif int(roomBoard) == 150:
+            if ghsType[idx] == "EO":
+                totalContGreatEastern = totalContGreatEastern + 605.00 * empNo[idx]
+            elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                totalContGreatEastern = totalContGreatEastern + 1512.00 * empNo[idx]
+            elif ghsType[idx] == "EF":
+                totalContGreatEastern = totalContGreatEastern + 2420.00 * empNo[idx]
+
+        elif int(roomBoard) == 200:
+            if ghsType[idx] == "EO":
+                totalContGreatEastern = totalContGreatEastern + 910.00 * empNo[idx]
+            elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                totalContGreatEastern = totalContGreatEastern + 2275.00 * empNo[idx]
+            elif ghsType[idx] == "EF":
+                totalContGreatEastern = totalContGreatEastern + 3640.00 * empNo[idx]
+
+        elif int(roomBoard) == 250:
+            if ghsType[idx] == "EO":
+                totalContGreatEastern = totalContGreatEastern + 1247.00 * empNo[idx]
+            elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                totalContGreatEastern = totalContGreatEastern + 3117.00 * empNo[idx]
+            elif ghsType[idx] == "EF":
+                totalContGreatEastern = totalContGreatEastern + 4988.00 * empNo[idx]
+
+        elif int(roomBoard) == 300:
+            if ghsType[idx] == "EO":
+                totalContGreatEastern = totalContGreatEastern + 1908.00 * empNo[idx]
+            elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                totalContGreatEastern = totalContGreatEastern + 4770.00 * empNo[idx]
+            elif ghsType[idx] == "EF":
+                totalContGreatEastern = totalContGreatEastern + 7632.00 * empNo[idx]
+
+        elif int(roomBoard) == 400:
+            if ghsType[idx] == "EO":
+                totalContGreatEastern = totalContGreatEastern + 2748.00 * empNo[idx]
+            elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                totalContGreatEastern = totalContGreatEastern + 6870.00 * empNo[idx]
+            elif ghsType[idx] == "EF":
+                totalContGreatEastern = totalContGreatEastern + 10922.00 * empNo[idx]
+
+        elif int(roomBoard) == 500:
+            if ghsType[idx] == "EO":
+                totalContGreatEastern = totalContGreatEastern + 3516.00 * empNo[idx]
+            elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                totalContGreatEastern = totalContGreatEastern + 8790.00 * empNo[idx]
+            elif ghsType[idx] == "EF":
+                totalContGreatEastern = totalContGreatEastern + 14064.00 * empNo[idx]
+
+        # Etiqa Takaful
+        if int(roomBoard) == 150:
+            if int(empAge >= 16) and int(empAge <= 64):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 606.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 1515.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 2424.00 * empNo[idx]
+            elif int(empAge >= 65) and int(empAge <= 75):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 1692.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 4230.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 6768.00 * empNo[idx]
+
+        elif int(roomBoard) == 200:
+            if int(empAge >= 16) and int(empAge <= 64):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 685.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 1713.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 2740.00 * empNo[idx]
+            elif int(empAge >= 65) and int(empAge <= 75):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 2033.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 5083.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 8132.00 * empNo[idx]
+
+        elif int(roomBoard) == 250:
+            if int(empAge >= 16) and int(empAge <= 64):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 883.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 2208.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 3532.00 * empNo[idx]
+            elif int(empAge >= 65) and int(empAge <= 75):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 2452.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 6130.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 9808.00 * empNo[idx]
+
+        elif int(roomBoard) == 350:
+            if int(empAge >= 16) and int(empAge <= 64):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 1083.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 2708.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 4332.00 * empNo[idx]
+            elif int(empAge >= 65) and int(empAge <= 75):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 3011.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 7528.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 12044.00 * empNo[idx]
+
+        elif int(roomBoard) == 500:
+            if int(empAge >= 16) and int(empAge <= 64):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 1283.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 3208.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 5132.00 * empNo[idx]
+            elif int(empAge >= 65) and int(empAge <= 75):
+                if ghsType[idx] == "EO":
+                    totalContEtiqa = totalContEtiqa + 3564.00 * empNo[idx]
+                elif ghsType[idx] == "ES" or ghsType[idx] == "EC":
+                    totalContEtiqa = totalContEtiqa + 8910.00 * empNo[idx]
+                elif ghsType[idx] == "EF":
+                    totalContEtiqa = totalContEtiqa + 14256.00 * empNo[idx]
+        
+    tpaFee = 17 * totalNoEmp
+    serviceTax, stampDuty, grandTotalCont = ghsCalculate(totalContGreatEastern,tpaFee)
+
+    if totalContGreatEastern != 0:
+        greatEasternDict = {
+            "takafulName": "Great Eastern",
+            "totalCont" : '{:.2f}'.format(round(totalContGreatEastern, 2)),
+            "serviceTax" : '{:.2f}'.format(round(serviceTax, 2)),
+            "stampDuty" : '{:.2f}'.format(round(stampDuty, 2)),
+            "grandTotalCont" : '{:.2f}'.format(round(grandTotalCont, 2))
+        }
+    else:
+        greatEasternDict = {
+                "takafulName": "None",
+        }
+
+    serviceTax, stampDuty, grandTotalCont = ghsCalculate(totalContEtiqa,tpaFee)
+
+    if totalContEtiqa != 0:
+        etiqaDict = {
+            "takafulName": "Great Eastern",
+            "totalCont" : '{:.2f}'.format(round(totalContEtiqa, 2)),
+            "serviceTax" : '{:.2f}'.format(round(serviceTax, 2)),
+            "stampDuty" : '{:.2f}'.format(round(stampDuty, 2)),
+            "grandTotalCont" : '{:.2f}'.format(round(grandTotalCont, 2))
+        }
+    else:
+        etiqaDict = {
+                "takafulName": "None",
+        }
+
+    tpaFee = '{:.2f}'.format(round(tpaFee, 2))
+
+    return render_template("quote-ghs.html", title='RoboTakaful | Quotation',
+                           meta_description=META_DESCRIPTION,
+                           meta_image=META_IMAGE_LINK,
+                           greatEasternDict = greatEasternDict,
+                           etiqaDict = etiqaDict,
+                           totalNoEmp=totalNoEmp,
+                           tpaFee=tpaFee,
+                           roomBoard=roomBoard
+                           )
+
 ############################################################### FUNCTIONS ############################################################### 
 
 def roboCalculate(totalCont):
     serviceTax = 0.06 * totalCont
     stampDuty = 10.00
     grandTotalCont = totalCont + serviceTax + stampDuty
+
+    return serviceTax, stampDuty, grandTotalCont
+
+def ghsCalculate(totalCont,tpaFee):
+    serviceTax = 0.06 * (totalCont + tpaFee)
+    stampDuty = 10.00
+    grandTotalCont = totalCont + tpaFee + serviceTax + stampDuty
 
     return serviceTax, stampDuty, grandTotalCont
 
