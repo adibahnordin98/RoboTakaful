@@ -21,7 +21,7 @@
 							<div class="form-content" >
 								<div class="text-center">
 									<div class="heading">
-										<h2 class="mb-0">Company Information</h2>
+										<h2 class="mb-0">Company Information & Takaful Product</h2>
 										<div class="box first">
 										</div>
 									</div>
@@ -29,7 +29,7 @@
 								</div>
 
 								<div class="mt-5 mb-5">
-									<form action="/gtt">
+									<form action="/employee-info" method="post">
 										<div class="mb-3">
 											<label for="businessType" class="form-label">Business Type</label>
 											<select id="businessType" class="form-select">
@@ -47,6 +47,14 @@
 	
 											<textarea class="form-control" id="companyAddress"></textarea>
 										</div>
+										<div class="mb-3">
+                                            <label for="products" class="form-label">Choose any Takaful Product</label>
+											<select id="products" class="form-select">
+												<option value="GTT" selected>Group Term Takaful Only</option>
+												<option value="GTT&GHS">Group Term Takaful & Group Hospitalisation Surgical</option>
+											</select>
+											<input type="text" id="productsTakaful" name="productsTakaful" hidden>
+                                        </div>
 
 										<div class="d-flex justify-content-center text-center align-items-center">
 											<button type="submit" class="btn btn-primary btn-custom">
@@ -66,7 +74,7 @@
         {% include 'components/footer.html' %}
 
         <!--Custom js-->
-		
+		<script src="static/js/company.js"></script>
 
     </body>
 </html>

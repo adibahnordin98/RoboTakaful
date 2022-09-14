@@ -9,6 +9,8 @@ META_IMAGE_LINK = ""
 META_DESCRIPTION = ""
 
 
+
+
 @app.route("/")
 def index():
     return render_template("home.html", title='RoboTakaful',
@@ -36,8 +38,17 @@ def compony_info():
                            meta_description=META_DESCRIPTION,
                            meta_image=META_IMAGE_LINK)
 
-@app.route("/gtt")
+@app.route("/employee-info", methods=['POST'])
 def employee_info():
+    products = request.form.get('productsTakaful')
+
+    return render_template("employee-info.html", title='RoboTakaful | Employee Info',
+                           meta_description=META_DESCRIPTION,
+                           meta_image=META_IMAGE_LINK,
+                           products=products)
+
+@app.route("/gtt")
+def gtt():
     return render_template("gtt.html", title='RoboTakaful | GTT',
                            meta_description=META_DESCRIPTION,
                            meta_image=META_IMAGE_LINK)
@@ -48,9 +59,82 @@ def employee_info_ghs():
                            meta_description=META_DESCRIPTION,
                            meta_image=META_IMAGE_LINK)
 
+#global variable
 
 @app.route("/quote-gtt")
 def quote_gtt():
+    finalTotalGE = 0
+    finalTotalEQ = 0
+    finalGrandTotalContGE = 0
+    finalGrandTotalContEQ = 0
+
+    greatEasternDict, etiqaDict, totalSumAssured, totalNoEmp, empCoverage, finalTotalGE, finalTotalEQ = calcGTT(finalTotalGE, finalTotalEQ)
+    print()
+
+    finalGrandTotalContGE = '{:.2f}'.format(round(finalTotalGE * 0.06 + finalTotalGE, 2))
+    finalGrandTotalContEQ = '{:.2f}'.format(round(finalTotalEQ * 0.06 + finalTotalEQ, 2))
+
+    return render_template("quote-gtt.html", title='RoboTakaful | Quotation',
+                           meta_description=META_DESCRIPTION,
+                           meta_image=META_IMAGE_LINK,
+                           greatEasternDict = greatEasternDict,
+                           etiqaDict = etiqaDict,
+                           totalSumAssured=totalSumAssured,
+                           totalNoEmp=totalNoEmp,
+                           empCoverage = empCoverage,
+                           finalGrandTotalContGE = finalGrandTotalContGE,
+                           finalGrandTotalContEQ = finalGrandTotalContEQ
+                           )
+
+@app.route("/quote-gtt-ghs")
+def quote_gtt_ghs():
+
+    finalTotalGE = 0
+    finalTotalEQ = 0
+    finalTotalGE2 = 0
+    finalTotalEQ2 = 0
+
+    greatEasternDict, etiqaDict, totalSumAssured, totalNoEmp, empCoverage, finalTotalGE, finalTotalEQ = calcGTT(finalTotalGE, finalTotalEQ)
+
+    greatEasternDict_GHS, etiqaDict_GHS, totalNoEmp, roomBoard, finalTotalGE, finalTotalEQ = calcGHS(finalTotalGE, finalTotalEQ)
+
+    finalTotalGE2 = finalTotalGE2 + finalTotalGE
+    finalTotalEQ2 = finalTotalEQ2 + finalTotalEQ
+
+    finalSSTGE = 0.06 * finalTotalGE2
+    finalGrandTotalContGE = finalTotalGE2 + finalSSTGE
+
+    finalSSTEQ = 0.06 * finalTotalEQ2
+    finalGrandTotalContEQ = finalTotalEQ2 + finalSSTEQ
+
+    finalSSTGE = '{:.2f}'.format(round(finalSSTGE, 2))
+    finalSSTEQ = '{:.2f}'.format(round(finalSSTEQ, 2))
+    finalGrandTotalContGE = '{:.2f}'.format(round(finalGrandTotalContGE, 2))
+    finalGrandTotalContEQ = '{:.2f}'.format(round(finalGrandTotalContEQ, 2))
+
+
+    return render_template("quote-gtt-ghs.html", title='RoboTakaful | Quotation',
+                           meta_description=META_DESCRIPTION,
+                           meta_image=META_IMAGE_LINK,
+                           greatEasternDict_GHS = greatEasternDict_GHS,
+                           etiqaDict_GHS = etiqaDict_GHS,
+                           totalNoEmp=totalNoEmp,
+                           roomBoard=roomBoard,
+
+                           greatEasternDict = greatEasternDict,
+                           etiqaDict = etiqaDict,
+                           totalSumAssured = totalSumAssured,
+                           empCoverage = empCoverage,
+
+                           finalSSTGE = finalSSTGE,
+                           finalSSTEQ = finalSSTEQ,
+                           finalGrandTotalContGE = finalGrandTotalContGE,
+                           finalGrandTotalContEQ = finalGrandTotalContEQ
+    )
+
+############################################################### FUNCTIONS ############################################################### 
+
+def calcGTT(finalTotalGE, finalTotalEQ):
     employeeAgeList = request.args.get('empAge')
     employeeNoList = request.args.get('empNo')
     empCoverage = request.args.get('empCoverage')
@@ -263,12 +347,13 @@ def quote_gtt():
     totalSumAssured = "{:,}".format(totalNoEmp * int(empCoverage))
 
     serviceTax, stampDuty, grandTotalCont = roboCalculate(totalContGreatEastern)
+    finalTotalGE = finalTotalGE + grandTotalCont
 
     if totalContGreatEastern != 0:
         greatEasternDict = {
             "takafulName": "Great Eastern",
             "totalCont" : '{:.2f}'.format(round(totalContGreatEastern, 2)),
-            "serviceTax" : '{:.2f}'.format(round(serviceTax, 2)),
+            "serviceTax" : '{:.2f}'.format(round(0.06 * finalTotalGE, 2)),
             "stampDuty" : '{:.2f}'.format(round(stampDuty, 2)),
             "grandTotalCont" : '{:.2f}'.format(round(grandTotalCont, 2))
         }
@@ -278,12 +363,13 @@ def quote_gtt():
         }
 
     serviceTax, stampDuty, grandTotalCont = roboCalculate(totalContEtiqa)
+    finalTotalEQ = float(finalTotalEQ) + grandTotalCont
 
     if totalContEtiqa != 0:
         etiqaDict = {
-            "takafulName": "Great Eastern",
+            "takafulName": "Etiqa",
             "totalCont" : '{:.2f}'.format(round(totalContEtiqa, 2)),
-            "serviceTax" : '{:.2f}'.format(round(serviceTax, 2)),
+            "serviceTax" : '{:.2f}'.format(round(0.06 * grandTotalCont, 2)),
             "stampDuty" : '{:.2f}'.format(round(stampDuty, 2)),
             "grandTotalCont" : '{:.2f}'.format(round(grandTotalCont, 2))
         }
@@ -291,19 +377,12 @@ def quote_gtt():
         etiqaDict = {
                 "takafulName": "None",
         }
-        
 
-    return render_template("quote-gtt.html", title='RoboTakaful | Quotation',
-                           meta_description=META_DESCRIPTION,
-                           meta_image=META_IMAGE_LINK,
-                           greatEasternDict = greatEasternDict,
-                           etiqaDict = etiqaDict,
-                           totalSumAssured=totalSumAssured,
-                           totalNoEmp=totalNoEmp,
-                           empCoverage="{:,}".format(int(empCoverage)))
+    empCoverage="{:,}".format(int(empCoverage))
 
-@app.route("/quote-ghs")
-def quote_ghs():
+    return greatEasternDict, etiqaDict, totalSumAssured, totalNoEmp, empCoverage, finalTotalGE, finalTotalEQ
+
+def calcGHS(finalTotalGE, finalTotalEQ):
     employeeAgeList = request.args.get('empAge')
     employeeNoList = request.args.get('empNo')
     ghsTypeList = request.args.get('ghsType')
@@ -314,7 +393,6 @@ def quote_ghs():
     empNo = []
     ghsType = []
     totalNoEmp = 0
-    tpaFee = 0
 
     for item in employeeNoList.split(','):
         if(item.isnumeric()):
@@ -470,12 +548,12 @@ def quote_ghs():
                 elif ghsType[idx] == "EF":
                     totalContEtiqa = totalContEtiqa + 14256.00 * empNo[idx]
         
-    tpaFee = 17 * totalNoEmp
-    serviceTax, stampDuty, grandTotalCont = ghsCalculate(totalContGreatEastern,tpaFee)
+    serviceTax, stampDuty, grandTotalCont = ghsCalculate(totalContGreatEastern)
+    finalTotalGE = float(finalTotalGE) + grandTotalCont
 
     if totalContGreatEastern != 0:
         greatEasternDict = {
-            "takafulName": "Great Eastern",
+            "takafulName": "Great Eastern GHS",
             "totalCont" : '{:.2f}'.format(round(totalContGreatEastern, 2)),
             "serviceTax" : '{:.2f}'.format(round(serviceTax, 2)),
             "stampDuty" : '{:.2f}'.format(round(stampDuty, 2)),
@@ -486,11 +564,12 @@ def quote_ghs():
                 "takafulName": "None",
         }
 
-    serviceTax, stampDuty, grandTotalCont = ghsCalculate(totalContEtiqa,tpaFee)
+    serviceTax, stampDuty, grandTotalCont = ghsCalculate(totalContEtiqa)
+    finalTotalEQ = float(finalTotalEQ) + grandTotalCont
 
     if totalContEtiqa != 0:
         etiqaDict = {
-            "takafulName": "Great Eastern",
+            "takafulName": "Etiqa GHS",
             "totalCont" : '{:.2f}'.format(round(totalContEtiqa, 2)),
             "serviceTax" : '{:.2f}'.format(round(serviceTax, 2)),
             "stampDuty" : '{:.2f}'.format(round(stampDuty, 2)),
@@ -501,31 +580,19 @@ def quote_ghs():
                 "takafulName": "None",
         }
 
-    tpaFee = '{:.2f}'.format(round(tpaFee, 2))
-
-    return render_template("quote-ghs.html", title='RoboTakaful | Quotation',
-                           meta_description=META_DESCRIPTION,
-                           meta_image=META_IMAGE_LINK,
-                           greatEasternDict = greatEasternDict,
-                           etiqaDict = etiqaDict,
-                           totalNoEmp=totalNoEmp,
-                           tpaFee=tpaFee,
-                           roomBoard=roomBoard
-                           )
-
-############################################################### FUNCTIONS ############################################################### 
+    return greatEasternDict, etiqaDict, totalNoEmp, roomBoard, finalTotalGE, finalTotalEQ
 
 def roboCalculate(totalCont):
     serviceTax = 0.06 * totalCont
     stampDuty = 10.00
-    grandTotalCont = totalCont + serviceTax + stampDuty
+    grandTotalCont = totalCont + stampDuty
 
     return serviceTax, stampDuty, grandTotalCont
 
-def ghsCalculate(totalCont,tpaFee):
-    serviceTax = 0.06 * (totalCont + tpaFee)
+def ghsCalculate(totalCont):
+    serviceTax = 0.06 * (totalCont)
     stampDuty = 10.00
-    grandTotalCont = totalCont + tpaFee + serviceTax + stampDuty
+    grandTotalCont = totalCont + stampDuty
 
     return serviceTax, stampDuty, grandTotalCont
 

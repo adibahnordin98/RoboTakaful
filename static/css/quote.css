@@ -34,9 +34,9 @@
   padding: 25px;
 }
 
-.pricing-plan:last-child {
+/* .pricing-plan:last-child {
   border-bottom: none;
-}
+} */
 
 .pricing-img {
   margin: 0;
@@ -76,7 +76,7 @@
   list-style-type:none
 }
 
-.pricing-features-item:last-child {
+.pricing-last{
   border-bottom: 1.5px solid #e1f1ff;
 }
 

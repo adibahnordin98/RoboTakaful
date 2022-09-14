@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'components/header.html' %}
+        <link rel="stylesheet" href="static/css/quote.css" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    </head>
+    <body>
+
+		<section class="section home home-1" id="quote">
+            
+          <div class="container" id="compare">
+            <div class="panel pricing-table my-5">
+              
+              <div class="pricing-plan my-5">
+
+                <div class="d-flex justify-content-center logoimg">
+                  <img src="{{ url_for('static', filename='images/takaful/great-eastern-takaful.svg') }}" alt="" class="pricing-img">
+                </div>
+
+                <h2 class="pricing-header text-center mt-5">Great Eastern Takaful</h2>
+                <ul class="pricing-features">
+                <div class="mb-3 text-center">
+                    <h5>Group Term Takaful</h5>
+                </div>
+                {% if greatEasternDict.takafulName == "None" %}
+                <div class="display-table pricing-features-item alert alert-info">
+                    <div>
+                        <div class="w-first-div text-center">Sorry, this takaful does not have plan for coverage RM{{empCoverage}}</div>
+                    </div>
+                </div>
+
+                {% elif greatEasternDict.takafulName == "Great Eastern" %}
+                  <div class="display-table pricing-features-item">
+                      <div>
+                          <div class="w-first-div">Total No of Employees</div>
+                          <div class="w-sec-div">{{totalNoEmp}}</div>
+                      </div>
+                  </div>
+                  <div class="display-table pricing-features-item">
+                    <div>
+                        <div class="w-first-div">Total Sum Assured</div>
+                        <div class="w-sec-div">RM{{totalSumAssured}}</div>
+                    </div>
+                </div>
+                  <div class="display-table pricing-features-item">
+                      <div>
+                          <div class="w-first-div">Subtotal Contribution,<br>Excluding Service Tax</div>
+                          <div class="w-sec-div">RM{{greatEasternDict.totalCont}}</div>
+                      </div>
+                  </div>
+
+                  <div class="display-table pricing-features-item pricing-last">
+                    <div>
+                        <div class="w-first-div">Stamp Duty</div>
+                        <div class="w-sec-div">RM{{greatEasternDict.stampDuty}}</div>
+                    </div>
+                  </div>
+                {% endif %}
+
+                <div class="mb-3 mt-5 text-center">
+                    <h5>Group Hospitalisation Surgical</h5>
+                </div>
+
+                {% if greatEasternDict.takafulName == "None"%}
+                <div class="display-table pricing-features-item alert alert-info">
+                    <div>
+                        <div class="w-first-div text-center">Sorry, this plan is supplementary plan for Group Term Takaful.</div>
+                    </div>
+                </div>
+
+                {% elif greatEasternDict_GHS.takafulName == "None" %}
+                <div class="display-table pricing-features-item alert alert-info">
+                    <div>
+                        <div class="w-first-div text-center">Sorry, this takaful does not have plan for R&B RM{{roomBoard}}</div>
+                    </div>
+                </div>
+
+                {% elif greatEasternDict_GHS.takafulName == "Great Eastern GHS" %}
+                  <div class="display-table pricing-features-item">
+                      <div>
+                          <div class="w-first-div">Total No of Employees</div>
+                          <div class="w-sec-div">{{totalNoEmp}}</div>
+                      </div>
+                  </div>
+
+                  <div class="display-table pricing-features-item">
+                    <div>
+                        <div class="w-first-div">Subtotal Contribution,<br>excluding TPA Fee <br>& Service Tax</div>
+                        <div class="w-sec-div">RM{{greatEasternDict_GHS.totalCont}}</div>
+                    </div>
+                </div>
+
+                <div class="display-table pricing-features-item pricing-last">
+                    <div>
+                        <div class="w-first-div">Stamp Duty</div>
+                        <div class="w-sec-div">RM{{greatEasternDict_GHS.stampDuty}}</div>
+                    </div>
+                  </div>
+
+                  <div class="display-table pricing-features-item pricing-last">
+                    <div>
+                        <div class="w-first-div">Service Tax</div>
+                        <div class="w-sec-div">RM{{finalSSTGE}}</div>
+                    </div>
+                  </div>
+
+              </ul>
+
+              <span class="pricing-price text-center mt-2">Total Contribution : RM{{finalGrandTotalContGE}}</span>
+              <center>
+                <small class="text-danger">The price shown does not include TPA fee and Service Tax related to the TPA fee if there’s any</small>
+            </center>
+
+              <div class="justify-content-center text-center align-items-center mt-3">
+                <a class="btn btn-primary btn-custom btnplan" href="javascript:void(0)"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="this feature not available yet">
+                    Choose This Plan
+                </a>  
+              </div>
+
+            {% endif %}
+
+              </div>
+
+              <div class="pricing-plan my-5">
+
+                <div class="d-flex justify-content-center text-center align-middle logoimg">
+                  <div>
+                  <img src="{{ url_for('static', filename='images/takaful/etiqa-takaful.svg') }}" alt="" class="pricing-img">
+                </div>
+                </div>
+                <h2 class="pricing-header text-center mt-5">Etiqa Takaful</h2>
+                <ul class="pricing-features">
+                <div class="mb-3 text-center">
+                    <h5>Group Term Takaful</h5>
+                </div>
+                {% if etiqaDict.takafulName == "None" %}
+                    <div class="display-table pricing-features-item alert alert-info">
+                        <div>
+                            <div class="w-first-div text-center">Sorry, this takaful does not have plan for coverage RM{{empCoverage}}</div>
+                        </div>
+                    </div>
+                {% elif etiqaDict.takafulName == "Etiqa" %}
+                  <div class="display-table pricing-features-item">
+                      <div>
+                          <div class="w-first-div">Total No of Employees</div>
+                          <div class="w-sec-div">{{totalNoEmp}}</div>
+                      </div>
+                  </div>
+                  <div class="display-table pricing-features-item">
+                    <div>
+                        <div class="w-first-div">Total Sum Assured</div>
+                        <div class="w-sec-div">RM{{totalSumAssured}}</div>
+                    </div>
+                </div>
+
+                  <div class="display-table pricing-features-item">
+                      <div>
+                          <div class="w-first-div">Subtotal Contribution,<br>Excluding Service Tax</div>
+                          <div class="w-sec-div">RM{{etiqaDict.totalCont}}</div>
+                      </div>
+                  </div>
+
+                  <div class="display-table pricing-features-item pricing-last">
+                    <div>
+                        <div class="w-first-div">Stamp Duty</div>
+                        <div class="w-sec-div">RM{{greatEasternDict_GHS.stampDuty}}</div>
+                    </div>
+                  </div>
+                  
+            {% endif %}
+              
+              <div class="mb-3 mt-5 text-center">
+                <h5>Group Hospitalisation Surgical</h5>
+            </div>
+            
+            {% if etiqaDict.takafulName == "None"%}
+            <div class="display-table pricing-features-item alert alert-info">
+                <div>
+                    <div class="w-first-div text-center">Sorry, this plan is supplementary plan for Group Term Takaful.</div>
+                </div>
+            </div>
+
+            {% elif etiqaDict_GHS.takafulName == "None"%}
+            <div class="display-table pricing-features-item alert alert-info">
+                <div>
+                    <div class="w-first-div text-center">Sorry, this takaful does not have plan for R&B RM{{roomBoard}}</div>
+                </div>
+            </div>
+
+            {% elif etiqaDict_GHS.takafulName == "Etiqa GHS" %}
+              <div class="display-table pricing-features-item">
+                  <div>
+                      <div class="w-first-div">Total No of Employees</div>
+                      <div class="w-sec-div">{{totalNoEmp}}</div>
+                  </div>
+              </div>
+
+              <div class="display-table pricing-features-item">
+                <div>
+                    <div class="w-first-div">Subtotal Contribution,<br>excluding TPA Fee <br>& Service Tax</div>
+                    <div class="w-sec-div">RM{{etiqaDict_GHS.totalCont}}</div>
+                </div>
+            </div>
+
+            <div class="display-table pricing-features-item pricing-last">
+                <div>
+                    <div class="w-first-div">Stamp Duty</div>
+                    <div class="w-sec-div">RM{{etiqaDict_GHS.stampDuty}}</div>
+                </div>
+              </div>
+
+              <div class="display-table pricing-features-item pricing-last">
+                <div>
+                    <div class="w-first-div">Service Tax</div>
+                    <div class="w-sec-div">RM{{finalSSTEQ}}</div>
+                </div>
+              </div>
+
+          </ul>
+
+          <span class="pricing-price text-center mt-2">Total Contribution : RM{{finalGrandTotalContEQ}}</span>
+          <center>
+            <small class="text-danger">The price shown does not include TPA fee and Service Tax related to the TPA fee if there’s any</small>
+        </center>
+
+          <div class="justify-content-center text-center align-items-center mt-3">
+            <a class="btn btn-primary btn-custom btnplan" href="javascript:void(0)"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="this feature not available yet">
+                Choose This Plan
+            </a>  
+          </div>
+        {% endif %}
+    </div>
+            </div>
+            <div class="d-flex justify-content-center text-center align-items-center">
+              <a type="submit" class="btn btn-primary btn-custom prev mt-5" onclick="history.back()">
+                  <i class="mdi mdi-chevron-double-left"></i>
+                  Go Back
+              </a>
+          </div>
+        </div>
+        </section>
+        
+
+    <!-- Footer -->
+    {% include 'components/footer.html' %}
+
+    <!--Custom js-->
+    <script src="static/js/popper.js"></script>
+    </body>
+</html>
